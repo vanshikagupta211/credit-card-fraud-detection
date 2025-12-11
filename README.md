@@ -1,112 +1,165 @@
-📌 Credit Card Fraud Detection — Machine Learning Project
-By Vanshika Gupta
-📖 Project Overview
+# 📌 Credit Card Fraud Detection — Machine Learning Project
+### **By Vanshika Gupta**
+
+---
+
+## 📖 Project Overview
 
 This project aims to detect fraudulent credit card transactions using machine learning.
 The dataset is highly imbalanced (only ~0.17% fraud), which makes fraud detection challenging.
 
-We handle:
+### We handle:
 
-Severe class imbalance
+- Severe class imbalance
+- Skewed transaction amounts
+- PCA-transformed features (V1–V28)
+- False-negative reduction (priority in fraud systems)
 
-Skewed transaction amounts
+---
 
-PCA-transformed features (V1–V28)
+## 📂 Dataset Source
 
-False-negative reduction (priority in fraud systems)
+This project uses the publicly available Kaggle dataset:
+🔗 Credit Card Fraud Detection Dataset
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud/data
 
-🧠 Business Problem
+### Dataset contains:
+
+- 284,807 transactions
+- 492 fraud cases
+- 30 PCA-based features + Amount + Time
+
+---
+
+## 🧠 Business Problem
 
 Fraudulent transactions cause major financial losses.
 The main goal is to detect fraud early, focusing on:
 
-✔ High Recall → catching most fraud cases
-✔ Low False Negatives → avoid missing fraud
-✔ Interpretability → features & importance
+- ✔ High Recall → catching most fraud cases
+- ✔ Low False Negatives → avoid missing fraud
+- ✔ Interpretability → features & importance
+- ✔ Reliable model for real-time detection
 
-📊 EDA Highlights
+---
 
-Fraud cases are extremely rare → only 0.17%
+## 📊 EDA Highlights
 
-Amount values are highly skewed → log-transform improves modeling
+- Fraud cases are extremely rare → only 0.17%
+- Amount feature is highly skewed → log transformation improves modeling
+- Fraud transactions show behavioral patterns in time & amount
+- PCA features cannot use VIF (no multicollinearity issue)
 
-Fraud shows certain time-based patterns
+---
 
-PCA features cannot use VIF (no multicollinearity issue)
+## 🔧 Machine Learning Pipeline
 
-🔧 ML Pipeline
+### **1. Data Preprocessing**
+- Log transform → Amount_log
+- Standard scaling (train only)
+- SMOTE oversampling (train only)
+- Stratified train-test split
 
-Load and explore dataset
+### **2. Models Trained**
+- Logistic Regression
+- Random Forest Classifier (Final Selected Model)
 
-Create Amount_log (log-transformed amount)
+### **3. Evaluation Metrics**
+- Confusion Matrix
+- Precision-Recall Curve
+- ROC-AUC Curve
+- Classification Report
 
-Train-test split (stratified)
+---
 
-Scale features (train-only)
+## 🔥 Final Model Selection
 
-Apply SMOTE (train-only)
+| Model	| Precision |	Recall	| F1 Score	| ROC-AUC |
+|-------|-----------|---------|-----------|---------|
+| **Logistic Regression**	| Moderate	| High	| Moderate	| ~0.96 |
+| **Random Forest (Final Model)**	| High	| High	| Best	| 0.97+ |
 
-Train Logistic Regression & Random Forest
+🎯 **Random Forest selected as the final model**
 
-Evaluate using:
+---
 
-Confusion Matrix
+## 📈 Model Visualizations
 
-ROC-AUC
+📌 ROC Curve
+(Upload your ROC image here in GitHub)
 
-Precision-Recall AUC
+📌 Precision–Recall Curve
+(Upload PR curve image)
 
-Compare models
+📌 Confusion Matrix
+(Upload confusion matrix image)
 
-Show predictions on unseen samples
+---
 
-🔥 Model Performance Comparison
-Model	Precision	Recall	F1	ROC-AUC
-Logistic Regression	Low	High	Low	~0.96
-Random Forest (Final Model)	High	High	Best	0.97+
+## 🗂 Model Artifacts
 
-👉 Random Forest is selected as the final model.
+The Model/ folder contains:
+- scaler.pkl → StandardScaler fitted on training data
+- random_forest_model.pkl → Final Random Forest model
 
-📈 ROC Curve
+These can be reused for deployment or prediction on new data.
 
-(Insert your ROC image here — drag and upload to GitHub)
+---
 
-⚠ Business Insights
+🧪 Sample Prediction Code
 
-Fraud is highly imbalanced, requiring special handling
+import joblib
 
-Log-transformed Amount gives clearer fraud patterns
+scaler = joblib.load("Model/scaler.pkl")
+model = joblib.load("Model/random_forest_model.pkl")
 
-PCA features still carry strong fraud signals
+sample = [[...]]  # Your input features
 
-Random Forest reduces the most false negatives
+scaled = scaler.transform(sample)
+prediction = model.predict(scaled)
+probability = model.predict_proba(scaled)
 
-The model is suitable for real-time fraud scoring
+print("Prediction:", prediction)
+print("Fraud Probability:", probability)
 
-📝 Conclusion
+---
 
-SMOTE, scaling, and preprocessing were applied only on training
+## 🧪 Business Insights
 
-No data leakage occurred
+- Fraud is highly imbalanced, requiring special handling
+- Log-transformed Amount gives clearer fraud patterns
+- PCA features still carry strong fraud signals
+- Random Forest reduces the most false negatives
+- The model is suitable for real-time fraud scoring
 
-Random Forest model gives best trade-off between recall & precision
+---
 
-Model is deployment-ready
+## 📝 Conclusion
 
-🧪 Sample Prediction
-Prediction Table (with fraud probability)
+- SMOTE & scaling applied only on training data → no leakage
+- Random Forest provides the best trade-off between recall, precision, and AUC
+- Model is suitable for real-world fraud detection systems
+- Can be deployed using Flask/FastAPI or integrated with banking systems
 
-📦 Installation
+---
+
+## 📦 How to Run the Project
+
+Install dependencies:
+
+```
 pip install -r requirements.txt
+```
 
-▶ How to Run
-Open the Jupyter notebook:
-jupyter notebook
+## Open the notebook:
 
-Run:
-Credit_Card_Fraud_Detection.ipynb
+[Credit_Card_Fraud_Detection.ipynb](Credit%20Card%20Fraud%20Detection.ipynb)
+
+---
 
 🙋‍♀️ Author
 
 Vanshika Gupta
-Data Analyst | Data Science | Machine Learning
+
+Data Scientist | Machine Learning | Python
+
