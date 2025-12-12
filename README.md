@@ -1,4 +1,4 @@
-# 📌 Credit Card Fraud Detection — Machine Learning Project
+# 💳 Credit Card Fraud Detection — Machine Learning Project
 ### **By Vanshika Gupta**
 
 ---
@@ -19,9 +19,10 @@ The dataset is highly imbalanced (only ~0.17% fraud), which makes fraud detectio
 
 ## 📂 Dataset Source
 
-This project uses the publicly available Kaggle dataset:
-🔗 Credit Card Fraud Detection Dataset
+This project uses the publicly available Kaggle dataset:  
+🔗 **Credit Card Fraud Detection Dataset**  
 https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud/data
+
 
 ### Dataset contains:
 
@@ -36,10 +37,10 @@ https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud/data
 Fraudulent transactions cause major financial losses.
 The main goal is to detect fraud early, focusing on:
 
-- ✔ High Recall → catching most fraud cases
-- ✔ Low False Negatives → avoid missing fraud
-- ✔ Interpretability → features & importance
-- ✔ Reliable model for real-time detection
+- High Recall → catching most fraud cases
+- Low False Negatives → avoid missing fraud
+- Interpretability → features & importance
+- Reliable model for real-time detection
 
 ---
 
@@ -72,12 +73,12 @@ The main goal is to detect fraud early, focusing on:
 
 ---
 
-## 🔥 Final Model Selection
+## ✅ Final Model Selection
 
 | Model	| Precision |	Recall	| F1 Score	| ROC-AUC |
 |-------|-----------|---------|-----------|---------|
 | **Logistic Regression**	| Moderate	| High	| Moderate	| ~0.96 |
-| **Random Forest (Final Model)**	| High	| High	| Best	| 0.97+ |
+| **Random Forest**	| High	| High	| Best	| 0.97+ |
 
 🎯 **Random Forest selected as the final model**
 
@@ -85,14 +86,14 @@ The main goal is to detect fraud early, focusing on:
 
 ## 📈 Model Visualizations
 
-📌 ROC Curve
-(Upload your ROC image here in GitHub)
+**ROC Curve**  
+![ROC Curve](images/ROCcurve.png)
 
-📌 Precision–Recall Curve
-(Upload PR curve image)
+**Precision–Recall Curve**  
+![PR Curve](images/PRcurve.png)
 
-📌 Confusion Matrix
-(Upload confusion matrix image)
+**Confusion Matrix**  
+![Confusion Matrix](images/ConfusionMatrix.png)
 
 ---
 
@@ -106,7 +107,7 @@ These can be reused for deployment or prediction on new data.
 
 ---
 
-🧪 Sample Prediction Code
+## 🤖 Sample Prediction Code
 
 import joblib
 
@@ -124,7 +125,7 @@ print("Fraud Probability:", probability)
 
 ---
 
-## 🧪 Business Insights
+## 📌 Business Insights
 
 - Fraud is highly imbalanced, requiring special handling
 - Log-transformed Amount gives clearer fraud patterns
@@ -143,7 +144,7 @@ print("Fraud Probability:", probability)
 
 ---
 
-## 📦 How to Run the Project
+## How to Run the Project
 
 Install dependencies:
 
@@ -157,9 +158,10 @@ pip install -r requirements.txt
 
 ---
 
-🙋‍♀️ Author
+👩‍💻 Author
 
 Vanshika Gupta
 
 Data Scientist | Machine Learning | Python
+
 
