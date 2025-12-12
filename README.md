@@ -87,13 +87,13 @@ The main goal is to detect fraud early, focusing on:
 ## 📈 Model Visualizations
 
 **ROC Curve**  
-![ROC Curve](images/ROCcurve.png)
+![ROC Curve](Images/ROCcurve.png)
 
 **Precision–Recall Curve**  
-![PR Curve](images/PRcurve.png)
+![PR Curve](Images/PRcurve.png)
 
 **Confusion Matrix**  
-![Confusion Matrix](images/ConfusionMatrix.png)
+![Confusion Matrix](Images/ConfusionMatrix.png)
 
 ---
 
@@ -163,5 +163,6 @@ pip install -r requirements.txt
 Vanshika Gupta
 
 Data Scientist | Machine Learning | Python
+
 
 
